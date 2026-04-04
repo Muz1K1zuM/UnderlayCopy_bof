@@ -114,15 +114,6 @@ secretsdump.py -ntds out.dit -system out.system LOCAL
 | Raw volume read (`\\.\C:`) | ✅ yes | ✅ yes |
 | Requires SYSTEM | ❌ no | ❌ no |
 
-### Estimated detection
-
-| EDR | Level | Main detection vector |
-|---|---|---|
-| Microsoft Defender for Endpoint | 🟡 Medium | ETW Kernel-File + raw volume read |
-| CrowdStrike Falcon | 🟢 Low-Medium | Raw volume read from legitimate process |
-| Elastic EDR | 🟡 Medium | Raw disk read suspicious process rule |
-| Windows Defender (basic) | 🟢 Low | No specific rules for this pattern |
-
 ### Recommendations
 
 **Destination path** — avoid obvious locations:
